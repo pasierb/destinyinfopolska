@@ -1,0 +1,3 @@
+<% if Refinery::Blog::Post.comments_allowed? %>
+  <%= content_tag :div, "", "class" => "fb-comments", "data-colorscheme" => "light", "data-numposts" => "5", "data-href" => refinery.blog_post_url(@post) %>
+<% end %>
