@@ -44,7 +44,6 @@ body {
     color: #ffce1f;
     margin: 0;
     padding: 15px 0 15px 15px;
-    border-left: 5px solid;
 
     a {
       color: #ffce1f;
@@ -81,7 +80,7 @@ body {
     overflow: hidden;
     background-image: image_url('dip_logo');
     background-repeat: no-repeat;
-    color: #222;
+    color: #520088;
     text-decoration: none;
 
     &.logo-90 {
@@ -203,6 +202,12 @@ body {
             }
           }
         }
+      }
+    }
+
+    > footer {
+      .inner {
+        padding: 15px;
       }
     }
 

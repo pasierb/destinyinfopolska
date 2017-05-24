@@ -1,0 +1,17 @@
+<h2><%= t('refinery.blog.posts.most_popular') %></h2>
+<ul id="blog_posts" class="list-unstyled">
+  <%- Refinery::Blog::Post.where(draft: false).order("access_count DESC", "published_at DESC").limit(5).each do |post| %>
+    <li>
+      <small class="details">
+        <%= post.author.username if post.author.present? %>
+        <time datetime="<%=l post.published_at.to_date, :format => :default %>" class='posted_at'>
+          @ <%= l(post.published_at.to_date, :format => :short) %>
+        </time>
+      </small>
+      <h5>
+        <%= link_to post.title, refinery.blog_post_path(post) %>
+      </h5>
+    </li>
+  <% end %>
+</ul>
+
