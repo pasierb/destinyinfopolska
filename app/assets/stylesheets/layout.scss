@@ -89,6 +89,9 @@ body {
   .content {
     background: $content_background;
     padding: 10px;
+    -webkit-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
   }
 
   .comments {
@@ -127,6 +130,7 @@ body {
   }
 
   .logo {
+    text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
     display: inline-block;
     margin: 0;
     padding: 12px 0 0 59px;
@@ -297,6 +301,9 @@ body {
   article.blog_post, article#blog_post {
     margin-bottom: 20px;
     background: $content_background;
+    -webkit-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
 
     header {
       padding: 5px 10px;
