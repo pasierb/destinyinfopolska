@@ -50,6 +50,10 @@
             </li>
           <% end %>
         </ul>
+
+        <% if user.twitch_username.present? %>
+          <%= content_tag 'dip-twitch-user-status' , "", ":login" => user.twitch_username.to_json %>
+        <% end %>
       </div>
     </div>
   </div>
