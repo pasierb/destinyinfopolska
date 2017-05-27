@@ -102,7 +102,6 @@ body {
       text-decoration: none;
 
       &:hover {
-        color: #ffce1f;
         text-decoration: none;
       }
     }
@@ -113,7 +112,7 @@ body {
     text-decoration: none;
 
     &:hover {
-      color: #520088;
+      color: #d18614;
     }
   }
 
@@ -145,6 +144,10 @@ body {
       background-image: image_url('logo_56x60');
       height: 60px;
       padding-left: 60px;
+    }
+
+    :hover {
+      color: #520088 !important;
     }
   }
 
@@ -179,7 +182,7 @@ body {
         padding: 0;
 
         &.selected {
-          background-color: rgba(0, 0, 0, 0.3);
+          background-color: rgba(0, 0, 0, 0.1);
         }
 
         a {
@@ -190,7 +193,9 @@ body {
           cursor: pointer;
 
           &:hover {
-            background-color: rgba(0, 0, 0, 0.2);
+            // background-color: rgba(0, 0, 0, 0.2);
+            color: #b868cc;
+            background-color: transparent;
           }
         }
       }
