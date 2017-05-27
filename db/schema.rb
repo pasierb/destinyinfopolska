@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519192302) do
+ActiveRecord::Schema.define(version: 20170527124903) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20170519192302) do
     t.datetime "updated_at"
     t.string   "slug"
     t.string   "full_name"
+    t.integer  "profile_image_id"
+    t.string   "twitch_username"
+    t.text     "description"
   end
 
   add_index "refinery_authentication_devise_users", ["id"], name: "index_refinery_authentication_devise_users_on_id"
