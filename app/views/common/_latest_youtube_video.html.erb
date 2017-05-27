@@ -2,10 +2,13 @@
   <span class="social-media-icon icon-sm youtube"></span>
   YouTube
 </h3>
-<div id="ytplayer"></div>
+
+<div class="content">
+  <div id="ytplayer"></div>
+</div>
 
 <%- content_for :javascripts do %>
-<script>
+  <script>
     // Load the IFrame Player API code asynchronously.
     var apiKey = "<%= Rails.application.secrets.youtube_api_key %>";
     var tag = document.createElement('script');
@@ -35,6 +38,6 @@
         });
       })
     }
-</script>
+  </script>
 <% end %>
 
