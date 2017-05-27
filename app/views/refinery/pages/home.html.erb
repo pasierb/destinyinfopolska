@@ -28,6 +28,10 @@
   </div>
   <div class="col-lg-3 col-md-4 col-sm-12">
     <div>
+      <%= render "common/twitch_users_status" %>
+    </div>
+
+    <div>
       <%= render "common/latest_youtube_video" %>
     </div>
 
@@ -41,14 +45,16 @@
   </div>
 </div>
 
-<script>
-  (function() {
-    $(document).ready(function() {
-      $('.blog-posts-grid').imagesLoaded( function() {
-        $('.blog-posts-grid').masonry({
-          itemSelector: '.blog-posts-grid-item'
+<%- content_for :javascripts do %>
+  <script>
+    (function() {
+      $(document).ready(function() {
+        imagesLoaded($('.blog-posts-grid'), function() {
+          $('.blog-posts-grid').masonry({
+            itemSelector: '.blog-posts-grid-item'
+          });
         });
       });
-    })
-  })();
-</script>
+    })();
+  </script>
+<% end %>

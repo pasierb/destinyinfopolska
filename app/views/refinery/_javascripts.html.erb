@@ -1,0 +1,14 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://use.fontawesome.com/3cc7f47aec.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+
+<script>
+  var dip = {
+    twitchClientId: "<%= Rails.application.secrets.twitch_client_id.html_safe %>"
+  }
+</script>
+
+<%= javascript_include_tag 'application' %>
+<%= yield :javascripts -%>

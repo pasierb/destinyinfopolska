@@ -4,6 +4,7 @@
 </h3>
 <div id="ytplayer"></div>
 
+<%- content_for :javascripts do %>
 <script>
     // Load the IFrame Player API code asynchronously.
     var apiKey = "<%= Rails.application.secrets.youtube_api_key %>";
@@ -35,4 +36,5 @@
       })
     }
 </script>
+<% end %>
 
