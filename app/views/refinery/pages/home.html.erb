@@ -39,8 +39,10 @@
 <script>
   (function() {
     $(document).ready(function() {
-      $('.blog-posts-grid').masonry({
-        itemSelector: '.blog-posts-grid-item'
+      $('.blog-posts-grid').imagesLoaded( function() {
+        $('.blog-posts-grid').masonry({
+          itemSelector: '.blog-posts-grid-item'
+        });
       });
     })
   })();

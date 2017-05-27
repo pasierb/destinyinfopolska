@@ -15,7 +15,7 @@ Refinery::Pages.configure do |config|
   config.new_page_parts = false
 
   # Configure whether to enable marketable_urls
-  config.marketable_urls = true
+  # config.marketable_urls = true
 
   # You can specify reserved words that won't be used as page slugs.
   # This only applies when marketable_urls is enabled.
