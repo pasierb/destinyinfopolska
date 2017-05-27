@@ -1,5 +1,5 @@
 $layer_1_background: transparent;
-$content_background: rgba(10, 10, 10, 0.8);
+$content_background: rgba(10, 10, 10, 0.9);
 
 body {
   margin: 0;
@@ -84,6 +84,7 @@ body {
 
   .content {
     background: $content_background;
+    padding: 10px;
   }
 
   .comments {

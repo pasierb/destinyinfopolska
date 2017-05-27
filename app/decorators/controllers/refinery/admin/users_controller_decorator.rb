@@ -3,7 +3,7 @@ Refinery::Authentication::Devise::Admin::UsersController.prepend(
     def user_params
       super.to_h.merge(params.require(:user).permit(
         :profile_image_id,
-        :twitch_username,
+        :twitter_username,
         :description,
         :twitch_username,
         :psn_username,
