@@ -7,6 +7,7 @@
     <%= render "/refinery/javascripts" %>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script src="https://use.fontawesome.com/3cc7f47aec.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   </head>
   <body id="<%= canonical_id @page %>" class="<%= view_template_class @page %>">
     <div id="fb-root"></div>
@@ -21,6 +22,7 @@
     </script>
 
     <%= site_bar -%>
+
     <div id="page_container">
       <header id="header">
         <%= render "/refinery/header" -%>

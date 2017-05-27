@@ -6,9 +6,11 @@ body {
   width: 100%;
   font-family: 'Raleway', sans-serif;
   background-color: #222;
-  background-image: image_url("bg_mars");
+  background-image: image_url("bg_planet");
+  background-position: center center;
   background-attachment: fixed;
   background-size: cover;
+  background-repeat: no-repeat;
   color: #ddd;
 
   img {
@@ -223,46 +225,51 @@ body {
       }
     }
 
+
     #blog_posts, #show_blog_post {
       width: 100%;
+    }
+  }
 
-      article.blog_post, article#blog_post {
-        margin-bottom: 20px;
-        background: rgba(0, 0, 0, 0.4);
+  .page-body {
+    padding: 30px 20px;
+  }
 
-        header {
-          padding: 5px 10px;
+  article.blog_post, article#blog_post {
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.4);
 
-          h1 {
+    header {
+      padding: 5px 10px;
 
-            a {
-              text-decoration: none;
-              color: #ffce1f;
-            }
-          }
+      h1 {
 
-          .details {
-            letter-spacing: 1px;
-            border-bottom: 1px solid #222;
-          }
+        a {
+          text-decoration: none;
+          color: #ffce1f;
         }
+      }
 
-        section {
-          padding: 15px;
-        }
+      .details {
+        letter-spacing: 1px;
+        border-bottom: 1px solid #222;
+      }
+    }
 
-        footer {
-          padding: 15px;
+    section {
+      padding: 15px;
+    }
 
-          span {
-            border-right: 1px solid #444;
-            padding-left: 10px;
-            padding-right: 10px;
+    footer {
+      padding: 15px;
 
-            &:last-child {
-              border-right: 0;
-            }
-          }
+      span {
+        border-right: 1px solid #444;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:last-child {
+          border-right: 0;
         }
       }
     }

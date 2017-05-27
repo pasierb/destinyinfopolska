@@ -1,1 +1,48 @@
-<%= render '/refinery/content_page' %>
+<%-# render '/refinery/content_page' %>
+
+
+<div class="row">
+  <div class="col-lg-9 col-md-8 col-sm-12">
+
+    <div class="row blog-posts-grid">
+      <%- Refinery::Blog::Post.order("published_at DESC").limit(10).each do |post| %>
+        <div class="col-lg-4 col-md-6 blog-posts-grid-item">
+
+          <article class="blog_post">
+            <header>
+              <section class='details'>
+                <%= post.author.username if post.author.present? %>
+                <time datetime="<%=l post.published_at.to_date, :format => :default %>" class='posted_at'>
+                  @ <%= l(post.published_at.to_date, :format => :short) %>
+                </time>
+              </section>
+              <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
+            </header>
+            <section class='clearfix'>
+              <%= post.custom_teaser.html_safe %>
+            </section>
+          </article>
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    <p>
+      <%= render "common/facebook_feed" %>
+    </p>
+    <p>
+      <%= render "common/twitter_feed" %>
+    </p>
+  </div>
+</div>
+
+<script>
+  (function() {
+    $(document).ready(function() {
+      $('.blog-posts-grid').masonry({
+        itemSelector: '.blog-posts-grid-item'
+      });
+    })
+  })();
+</script>

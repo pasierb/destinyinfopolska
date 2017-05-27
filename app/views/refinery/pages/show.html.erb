@@ -1,2 +1,23 @@
-<%= render '/refinery/content_page' %>
+<%-# render '/refinery/content_page' %>
+
+<div class="row">
+  <div class="col-lg-9 col-md-8 col-sm-12">
+    <% @page.parts.where(slug: 'body').each do |part| %>
+      <%- if part.body.present? %>
+        <article class="page-body">
+          <%= part.body.html_safe %>
+        </article>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    <% @page.parts.where(slug: 'side_body').each do |part| %>
+      <%- if part.body.present? %>
+        <section>
+          <%= part.body.html_safe %>
+        </section>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 

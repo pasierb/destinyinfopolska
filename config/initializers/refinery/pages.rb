@@ -1,18 +1,21 @@
 # encoding: utf-8
 Refinery::Pages.configure do |config|
   # Configure specific page templates
-  # config.types.register :home do |home|
-  #   home.parts = %w[intro body]
-  # end
+  config.types.register :home do |home|
+    home.parts = %w[intro body]
+  end
 
   # Configure global page default parts
-  config.default_parts = [{:title=>"Body", :slug=>"body"}, {:title=>"Side Body", :slug=>"side_body"}]
+  config.default_parts = [
+    {:title=>"Body", :slug=>"body"},
+    {:title=>"Side Body", :slug=>"side_body"}
+  ]
 
   # Configure whether to allow adding new page parts
-  # config.new_page_parts = false
+  config.new_page_parts = false
 
   # Configure whether to enable marketable_urls
-  # config.marketable_urls = true
+  config.marketable_urls = true
 
   # You can specify reserved words that won't be used as page slugs.
   # This only applies when marketable_urls is enabled.
