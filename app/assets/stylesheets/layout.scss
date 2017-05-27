@@ -39,6 +39,10 @@ body {
       &.twitch {
         background-image: image_url("005-twitch_32")
       }
+
+      &.news {
+        background-image: image_url("text-lines_32")
+      }
     }
 
     &.twitch {
@@ -55,6 +59,10 @@ body {
 
     &.psn {
       background-image: image_url("002-playstation-logotype_64");
+    }
+
+    &.news {
+      background-image: image_url("text-lines_64")
     }
   }
 

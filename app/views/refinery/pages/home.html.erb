@@ -2,6 +2,9 @@
 
 <div class="row">
   <div class="col-lg-9 col-md-8 col-sm-12">
+    <h3>
+      <span class="social-media-icon icon-sm news"></span> <%= link_to "News", refinery.blog_root_path %>
+    </h3>
 
     <div class="row blog-posts-grid">
       <%- Refinery::Blog::Post.order("published_at DESC").limit(10).each do |post| %>
