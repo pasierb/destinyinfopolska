@@ -1,13 +1,11 @@
-<% content_for :side_body do %>
-  <%= yield(:side_body_prepend) %>
+<%= render "/refinery/blog/shared/categories" %>
+<%= render "/refinery/blog/shared/tags" %>
+<%= render "/refinery/blog/shared/most_popular_posts" %>
+<%= render "/refinery/blog/shared/rss_feed" %>
+<%= blog_archive_widget %>
+<p>
   <%= render "/common/facebook_feed" %>
-  <p></p>
+</p>
+<p>
   <%= render "/common/twitter_feed" %>
-  <p></p>
-  <%= render "/refinery/blog/shared/categories" %>
-  <%= render "/refinery/blog/shared/tags" %>
-  <%= render "/refinery/blog/shared/most_popular_posts" %>
-  <%= render "/refinery/blog/shared/rss_feed" %>
-  <%= blog_archive_widget %>
-  <%= yield(:side_body_append) %>
-<% end %>
+</p>

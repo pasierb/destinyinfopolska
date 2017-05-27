@@ -24,6 +24,11 @@ body {
     z-index: 1000;
   }
 
+  #page {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
   #page_container {
     > footer {
       padding-top: 30px;

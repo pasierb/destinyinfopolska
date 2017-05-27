@@ -1,16 +1,17 @@
-<% content_for :body do %>
-  <div id="show_blog_post">
-    <%= render 'post' %>
+<div class="row">
+  <div class="col-lg-9 col-md-8 col-sm-12">
+    <div id="show_blog_post">
+      <%= render 'post' %>
+    </div>
+
+    <div class="comments">
+      <%= render 'comments' %>
+    </div>
   </div>
-
-  <div class="comments">
-    <%= render 'comments' %>
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    <%= render '/refinery/blog/shared/body_content_right' %>
   </div>
-<% end %>
-
-<%= render '/refinery/blog/shared/body_content_right' %>
-
-<%= render "/refinery/content_page", :remove_automatic_sections => true %>
+</div>
 
 <% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
 <% content_for :javascripts do %>
