@@ -1,5 +1,5 @@
 $layer_1_background: transparent;
-$content_background: rgba(10, 10, 10, 0.6);
+$content_background: rgba(10, 10, 10, 0.8);
 
 body {
   margin: 0;
@@ -20,6 +20,23 @@ body {
     text-indent: -2000em;
     overflow: hidden;
 
+    &.icon-sm {
+      width: 32px;
+      height: 32px;
+
+      &.youtube {
+        background-image: image_url("004-youtube_32");
+      }
+
+      &.facebook {
+        background-image: image_url("facebook_32");
+      }
+
+      &.twitter {
+        background-image: image_url("003-twitter_32");
+      }
+    }
+
     &.twitch {
       background-image: image_url("005-twitch_64")
     }
@@ -29,7 +46,7 @@ body {
     }
 
     &.twitter {
-      background-image: image_url("004-twitter_64");
+      background-image: image_url("003-twitter_64");
     }
 
     &.psn {
@@ -62,8 +79,11 @@ body {
     section#page, > footer {
       margin-left: auto;
       margin-right: auto;
-      background: $content_background;
     }
+  }
+
+  .content {
+    background: $content_background;
   }
 
   .comments {
@@ -184,7 +204,7 @@ body {
       -webkit-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
       -moz-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
       box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
-      background: #fefefe image_url("gradient_grey");
+      background: #fff;
       text-align: center;
       width: 100%;
       position: relative;
@@ -266,7 +286,7 @@ body {
 
   article.blog_post, article#blog_post {
     margin-bottom: 20px;
-    background: rgba(0, 0, 0, 0.4);
+    background: $content_background;
 
     header {
       padding: 5px 10px;

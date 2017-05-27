@@ -1,3 +1,7 @@
+<h3>
+  <span class="social-media-icon icon-sm youtube"></span>
+  YouTube
+</h3>
 <div id="ytplayer"></div>
 
 <script>
@@ -15,7 +19,6 @@
     function onYouTubePlayerAPIReady() {
       var width = $("#ytplayer").width();
 
-      //search?order=date&part=snippet&channelId={channel id here}&maxResults=25&key={YOUR_API_KEY}
       $.get({
         url: "https://www.googleapis.com/youtube/v3/search",
         data: {
@@ -25,7 +28,6 @@
           key: apiKey
         }
       }, function(data) {
-        console.log(data)
         player = new YT.Player('ytplayer', {
           videoId: data.items[0].id.videoId,
           width: width

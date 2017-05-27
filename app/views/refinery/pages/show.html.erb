@@ -4,7 +4,7 @@
   <div class="col-lg-9 col-md-8 col-sm-12">
     <% @page.parts.where(slug: 'body').each do |part| %>
       <%- if part.body.present? %>
-        <article class="page-body">
+        <article class="page-body content">
           <%= part.body.html_safe %>
         </article>
       <% end %>
@@ -13,7 +13,7 @@
   <div class="col-lg-3 col-md-4 col-sm-12">
     <% @page.parts.where(slug: 'side_body').each do |part| %>
       <%- if part.body.present? %>
-        <section>
+        <section class="content">
           <%= part.body.html_safe %>
         </section>
       <% end %>

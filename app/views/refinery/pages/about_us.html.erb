@@ -1,6 +1,7 @@
-<h2><%= @page.title %></h2>
 
-<div class="row">
+<div class="row content">
+  <h2><%= @page.title %></h2>
+
   <div class="col-sm-12">
     <% @page.parts.where(slug: 'body').each do |part| %>
       <%- if part.body.present? %>
@@ -13,7 +14,7 @@
 </div>
 
 <%- Refinery::Authentication::Devise::User.order(:username).each do |user| %>
-  <div class="row">
+  <div class="row content">
     <div class="col-lg-3">
       <% if user.profile_image.present? %>
         <%= image_tag user.profile_image.url %>
