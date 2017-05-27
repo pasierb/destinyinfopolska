@@ -13,6 +13,30 @@ body {
   background-repeat: no-repeat;
   color: #ddd;
 
+  .social-media-icon {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    text-indent: -2000em;
+    overflow: hidden;
+
+    &.twitch {
+      background-image: image_url("005-twitch_64")
+    }
+
+    &.youtube {
+      background-image: image_url("004-youtube_64");
+    }
+
+    &.twitter {
+      background-image: image_url("004-twitter_64");
+    }
+
+    &.psn {
+      background-image: image_url("002-playstation-logotype_64");
+    }
+  }
+
   img {
     max-width: 100%;
   }

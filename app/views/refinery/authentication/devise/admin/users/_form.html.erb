@@ -25,10 +25,12 @@
     <%= f.text_field :full_name %>
   </div>
 
-  <div class='field'>
-    <%= f.label :twitch_username %>
-    <%= f.text_field :twitch_username %>
-  </div>
+  <%- %w(twitch_username twitter_username psn_username xbl_username  youtube_username bungie_profile_id).each do |field_name| %>
+    <div class='field'>
+      <%= f.label field_name.to_sym %>
+      <%= f.text_field field_name.to_sym %>
+    </div>
+  <% end %>
 
   <div class='field'>
     <%= f.label :description %>

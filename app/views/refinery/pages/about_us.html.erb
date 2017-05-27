@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<%- Refinery::Authentication::Devise::User.all.each do |user| %>
+<%- Refinery::Authentication::Devise::User.order(:username).each do |user| %>
   <div class="row">
     <div class="col-lg-3">
       <% if user.profile_image.present? %>
@@ -26,6 +26,25 @@
           <%= user.description.html_safe %>
         </p>
       <% end %>
+      <div>
+        <ul class="list-inline">
+          <% if user.twitch_username.present? %>
+            <li>
+              <%= link_to user.twitch_username, "https://www.twitch.tv/#{user.twitch_username}", class: "social-media-icon twitch", target: "_blank" %>
+            </li>
+          <% end %>
+          <% if user.youtube_username.present? %>
+            <li>
+              <%= link_to user.twitch_username, "https://www.youtube.com/channel/#{user.youtube_username}", class: "social-media-icon youtube", target: "_blank" %>
+            </li>
+          <% end %>
+          <% if user.psn_username.present? %>
+            <li>
+              <span class="social-media-icon psn">></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 <% end %>
