@@ -3,4 +3,4 @@
   Twitch
 </h3>
 
-<%= content_tag 'dip-twitch-status' , "", ":logins" => Refinery::Authentication::Devise::User.where(%Q(twitch_username IS NOT NULL)).pluck(:twitch_username).to_json, "class" => "content" %>
+<%= content_tag 'dip-twitch-status' , "", ":logins" => Refinery::Authentication::Devise::User.where(%Q(twitch_username IS NOT NULL)).pluck(:twitch_username).reject(&:empty?).to_json, "class" => "content" %>
