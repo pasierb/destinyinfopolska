@@ -1,0 +1,40 @@
+<h3><%= user.username %></h3>
+
+<% if user.profile_image.present? %>
+  <%= image_tag user.profile_image.url %>
+<% end %>
+
+<% if user.description.present? %>
+  <p>
+    <%= user.description.html_safe %>
+  </p>
+<% end %>
+<div>
+  <ul class="list-inline">
+    <% if user.twitch_username.present? %>
+      <li>
+        <%= link_to user.twitch_username, "https://www.twitch.tv/#{user.twitch_username}", class: "social-media-icon twitch", target: "_blank" %>
+      </li>
+    <% end %>
+    <% if user.youtube_username.present? %>
+      <li>
+        <%= link_to user.twitch_username, "https://www.youtube.com/channel/#{user.youtube_username}", class: "social-media-icon youtube", target: "_blank" %>
+      </li>
+    <% end %>
+    <% if user.twitter_username.present? %>
+      <li>
+        <%= link_to user.twitter_username, "https://www.twitter.com/#{user.twitter_username}", class: "social-media-icon twitter", target: "_blank" %>
+      </li>
+    <% end %>
+    <% if user.psn_username.present? %>
+      <li>
+        <span class="social-media-icon psn">></span>
+      </li>
+    <% end %>
+  </ul>
+
+  <% if user.twitch_username.present? %>
+    <%= content_tag 'dip-twitch-user-status' , "", ":login" => user.twitch_username.to_json %>
+  <% end %>
+</div>
+
