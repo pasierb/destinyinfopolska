@@ -37,6 +37,19 @@
             <section class='clearfix'>
               <%= post.custom_teaser.html_safe %>
             </section>
+            <footer>
+              <span>
+                <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post) %>
+              </span>
+              <% if Refinery::Blog::Post.comments_allowed? %>
+                <span class='comment_count'>
+                  <%= link_to refinery.blog_post_path(post) do %>
+                    <%= content_tag :i, "0", "class" => "fb-comments-count", "data-href" => refinery.blog_post_url(post) %>
+                    <i class="fa fa-comments"></i>
+                  <% end %>
+                </span>
+              <% end %>
+            </footer>
           </article>
 
         </div>
