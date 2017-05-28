@@ -14,16 +14,34 @@
     props: ['login'],
     template: '<div>\
       <i class="fa fa-twitch" v-bind:class="twitchStatusClass"></i>\
-      <strong><a v-bind:href="twitchAccountUrl" target="_twitch">{{login}}</a></strong>: <span v-bind:class="twitchStatusClass">{{twitchStatus.stream ? "online" : "offline"}}</span>\
-      <span v-if="twitchStatus.stream">({{twitchStatus.stream.game}})</span>\
+      <strong>\
+        <a v-bind:href="twitchAccountUrl" target="_twitch">{{login}}</a>\
+      </strong>: \
+      <span v-bind:class="twitchStatusClass">{{twitchStatus.stream ? "online" : "offline"}}</span>\
+      <span></span>\
+      <span v-if="twitchStatus.stream">\
+        {{twitchStatus.stream.game}} <i class="fa fa-eye"></i>{{twitchStatus.stream.viewers}}\
+        <small>- {{twitchStatus.stream.channel.status}}</small>\
+      </span>\
     </div>',
     data: function() {
       return {
+        inteval: null,
         twitchStatus: {}
       };
     },
     mounted: function() {
-      this.getUserStatus();
+      var vm = this;
+
+      vm.getUserStatus();
+      (function() {
+        vm.inteval = setInterval(function() {
+          vm.getUserStatus();
+        }, 60000);
+      })()
+    },
+    beforeDestroy: function() {
+      clearInterval(this.inteval);
     },
     computed: {
       twitchAccountUrl: function() {
