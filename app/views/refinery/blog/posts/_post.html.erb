@@ -17,12 +17,11 @@
         </div>
       <% end %>
       <% if (categories = @post.categories).any? %>
-        <aside class='filled_in'>
-          <%= t('filled_in', :scope => 'refinery.blog.posts.show') %>
+        <span class='filled_in'>
           <% categories.each_with_index do |category, index| %>
-            <%= link_to category.title, refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
+            <%= link_to "##{category.title}", refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
           <% end %>
-        </aside>
+        </span>
       <% end %>
     </section>
     <h1><%= @post.title %></h1>
