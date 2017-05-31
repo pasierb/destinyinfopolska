@@ -37,6 +37,8 @@
 
 <% content_for :meta do %>
   <meta property="og:url" content="<%= refinery.blog_post_url(@post) %>">
+  <meta property="og:title" content="<%= @post.title %>">
+  <meta property="og:description" content="<%= strip_tags @post.custom_teaser %>">
 
   <% if @post.featured_image.present? %>
     <meta property="og:image" content="<%= @post.featured_image.url({ host: [request.protocol, request.host].join("") }) %>">
