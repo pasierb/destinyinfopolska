@@ -1,0 +1,27 @@
+<div class='page_part' id='page_part_teaser'>
+  <%= f.text_area :custom_teaser, :rows => 20, :class => 'visual_editor widest' -%>
+  <p>
+    <span class='clearfix label_inline_with_link'>
+      <%= link_to t('copy_body', :scope => 'refinery.blog.admin.posts.form'), "#",
+                  :id => 'copy_body_link',
+                  :title => t('copy_body_help', :scope => 'refinery.blog.admin.posts.form') %>
+    </span>
+  </p>
+
+  <div class="field">
+    <%= f.label :featured_image %>
+    <%= render :partial => "/refinery/admin/image_picker", :locals => {
+        :f => f,
+        :field => :featured_image_id,
+        :image => f.object.featured_image,
+        :toggle_image_display => false
+      }
+    %>
+  </div>
+
+  <div class="field">
+    <%= f.label :featured_image_url %>
+    <%= f.text_field :featured_image_url, :class => "widest" %>
+  </div>
+</div>
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527140755) do
+ActiveRecord::Schema.define(version: 20170531143528) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title"
@@ -133,8 +133,10 @@ ActiveRecord::Schema.define(version: 20170527140755) do
     t.text     "custom_teaser"
     t.string   "source_url"
     t.string   "source_url_title"
-    t.integer  "access_count",     default: 0
+    t.integer  "access_count",       default: 0
     t.string   "slug"
+    t.integer  "featured_image_id"
+    t.string   "featured_image_url"
   end
 
   add_index "refinery_blog_posts", ["access_count"], name: "index_refinery_blog_posts_on_access_count"
