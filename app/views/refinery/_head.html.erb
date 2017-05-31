@@ -4,6 +4,7 @@
 <%= tag(:meta, name: 'description', content: @meta.meta_description) if @meta.meta_description.present? -%>
 <%= tag(:link, href: request.protocol+request.host_with_port+@canonical, rel: 'canonical') if @canonical.present? -%>
 <%= csrf_meta_tags if Refinery::Core.authenticity_token_on_frontend -%>
+<%= tag(:meta, name: 'keywords', content: "Destiny Info Polska Informacje Destiny 2 Mapy Trials of Osiris Xur Najnowsze informacje Polski klan nowości" )%>
 <%= yield :meta %>
 
 <%= stylesheet_link_tag "application" %>
