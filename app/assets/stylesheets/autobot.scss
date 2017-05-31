@@ -1,0 +1,54 @@
+.weekly-activities {
+
+  .weekly-activity-item {
+    .activity-image {
+      img {}
+    }
+
+    .activity-details {
+      display: table-row;
+
+      .activity-icon {
+        display: table-cell;
+
+        img {}
+      }
+
+      .activity-description {
+        display: table-cell;
+
+        h2 {}
+
+        ul.modifiers {
+          list-style: none;
+          padding: 0;
+
+          li {
+            margin-bottom: 5px;
+
+            .skull-icon {
+              display: inline-block;
+
+              img {}
+            }
+
+            .skull-details {
+              display: inline-block;
+
+              .skull-name {
+                font-size: 150%;
+              }
+
+              .skull-description {
+                &::before {
+                  content: " - ";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

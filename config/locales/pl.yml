@@ -1,5 +1,32 @@
 ---
 pl:
+  destiny:
+    d1:
+      skull:
+        description:
+          qirborne: Gracze zadają w powietrzu większe obrażenia.
+          berserk: Słudzy ciemności nie cofną się, nawet po otrzymaniu dużych obrażeń.
+          arc_burn: Obrażenia Arcowe z dowolnego źródła są znacznie zwiększone.
+          brawler: Obrażenia melee są znacznie zwiększone.
+          catapult: Ładowanie granatu jest znacznie szybsze.
+          chaff: Radar gracza jest wyłączony.
+          daybreak: Zredukowany czas odnowienia wszystkich umiejętności. Modyfikator Epic jest aktywny.
+          epic: Wrogowie pojawiają się w większej liczbie, dodatkowo są ciężko opancerzeni i bardziej agresywni.
+          exposure: Osłony Strażników są mocniejsze, ale nie odnawiają się.
+          fresh_troops: Niektóre wrogie oddziały są wzmocnione dodatkowymi posiłkami.
+          grounded: Gracze otrzymują większe obrażenie kiedy są w powietrzu.
+          heroic: Wrogowie pojawiają się w większych liczbach i są bardziej agresywni.
+          juggler: Nie spada amunicja dla uzbrojonej broni.
+          ironclad: Więcej wrogów ma osłony.
+          lightswitch: Słudzy ciemności zadają dużo większy obrażenia melee.
+          match_game: Osłony wrogów są odporne na niepasujące obrażenia elementarne.
+          nightfall: Jeśli wszyscy graczy umrą całe zespół cofany jest na orbitę.
+          small_arms: Obrażenia zadawane z broni głównej są wzmocnione.
+          solar_burn: Obrażenia Solarowe z dowolnego źródła są znacznie zwiększone.
+          specialist: Obrażenia zadawane z broni specjalnej są wzmocnione.
+          trickle: Znacznie zredukowany czas odnowienia umiejętności.
+          void_burn: Obrażenia Voidowe z dowolnego źródła są znacznie zwiększone.
+
   activerecord:
     errors:
       messages:

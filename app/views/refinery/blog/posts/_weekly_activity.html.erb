@@ -1,0 +1,33 @@
+<div class="weekly-activity-item">
+  <div class="activity-image">
+    <img src="<%= activity[:image] %>" />
+  </div>
+  <div class="activity-details">
+    <div class="activity-icon">
+      <img src="<%= activity[:icon] %>" />
+    </div>
+    <div class="activity-description">
+      <h2>
+        <%= activity[:title] %>
+        <small><%= activity[:subtitle] %></small>
+      </h2>
+      <% activity[:tiers].each do |tier| %>
+        <% tier[:skull_categories].each do |category| %>
+          <ul class="modifiers">
+            <% category[:modifiers].each do |modifier| %>
+              <li>
+                <div class="skull-icon">
+                  <img src="<%= modifier[:icon] %>" />
+                </div>
+                <div class="skull-details">
+                  <span class="skull-name"><%= modifier[:name] %></span>
+                  <span class="skull-description"><%= modifier[:description] %></span>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end if tier[:skull_categories].present? %>
+      <% end if activity[:tiers].present? %>
+    </div>
+  </div>
+</div>
