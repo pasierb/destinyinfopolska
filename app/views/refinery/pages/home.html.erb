@@ -35,6 +35,10 @@
               <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
             </header>
             <section class='clearfix'>
+              <% if post.featured_image.present? || post.featured_image_url.present? %>
+                <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
+              <% end %>
+
               <%= post.custom_teaser.html_safe %>
             </section>
             <footer>
