@@ -7,9 +7,7 @@
         <i class="fa fa-bars"></i>
       </a>
 
-      <%= link_to refinery.root_path, class: "logo logo-60 navbar-brand" do %>
-        <span class="hidden-sm hidden-xs"><%= Refinery::Core.site_name %></span>
-      <% end %>
+      <%= link_to Refinery::Core.site_name, refinery.root_path, class: "logo logo-60 navbar-brand" %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
