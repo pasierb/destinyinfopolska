@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-9 col-md-8 col-sm-7">
+    <h2><%= t('.blog_archive_for', :date => @date_title) %></h2>
+
+    <% if @posts.any? %>
+      <div class="row blog-posts-grid">
+        <%- @posts.each do |post| %>
+          <div class="col-lg-6 col-md-12 col-sm-12 blog-posts-grid-item">
+            <%= render "/refinery/blog/shared/post", post: post %>
+          </div>
+        <% end %>
+        <%= will_paginate @posts %>
+      </div>
+    <% else %>
+      <p><%= t('.no_blog_articles_posted', :date => @date_title) %></p>
+    <% end %>
+
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-5">
+    <%= render '/refinery/blog/shared/body_content_right' %>
+  </div>
+</div>
+
+<% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
