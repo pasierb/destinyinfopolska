@@ -1,4 +1,20 @@
-<%= link_to refinery.root_path, class: "logo logo-60" do %>
-  <span class="hidden-sm hidden-xs"><%= Refinery::Core.site_name %></span>
-<% end %>
-<%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-bars"></i>
+      </a>
+
+      <%= link_to refinery.root_path, class: "logo logo-60 navbar-brand" do %>
+        <span class="hidden-sm hidden-xs"><%= Refinery::Core.site_name %></span>
+      <% end %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+    </div>
+
+  </div>
+</nav>

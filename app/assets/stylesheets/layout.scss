@@ -2,6 +2,7 @@ $layer_1_background: transparent;
 $content_background: rgba(10, 10, 10, 0.9);
 
 body {
+  padding-top: 70px;
   margin: 0;
   width: 100%;
   font-family: 'Raleway', sans-serif;
@@ -12,6 +13,14 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   color: #ddd;
+
+  .navbar-header {
+    padding-right: 10px;
+
+    .navbar-brand {
+      color: #333;
+    }
+  }
 
   .social-media-icon {
     display: inline-block;
@@ -77,25 +86,9 @@ body {
     z-index: 1000;
   }
 
-  #page {
-    margin-top: 20px;
-    padding-top: 20px;
-  }
-
-  #page_container {
-    > footer {
-      padding-top: 30px;
-      padding-bottom: 70px;
-    }
-
-    section#page, > footer {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
   .content {
     background: $content_background;
+    overflow: hidden;
     padding: 10px;
     -webkit-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
@@ -166,18 +159,6 @@ body {
     }
   }
 
-  section#page {
-    margin-left: auto;
-    margin-right: auto;
-
-    #body_content {
-      color: #ccc;
-
-      #body {
-        border-right: 1px solid #222;
-      }
-    }
-  }
 
   nav#menu {
     display: inline-block;
@@ -217,92 +198,10 @@ body {
     }
   }
 
-
-  #page_container {
-    position: relative;
-
-    > header {
-      -webkit-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
-      -moz-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
-      box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
-      background: #fff;
-      text-align: center;
-      width: 100%;
-      position: relative;
-
-      .logo {
-        position: absolute;
-        left: 10px;
-      }
-    }
-
-    #page {
-      width: 100%;
-
-      #body_content {
-        width: 100%;
-
-        #body_content_title {
-          margin-top: 30px;
-          width: 74%;
-          float: left;
-          display: inline-block;
-        }
-
-        #body {
-          padding-top: 30px;
-          width: 74%;
-          float: left;
-          display: inline-block;
-
-          .inner {
-            padding: 15px 20px 50px 20px;
-          }
-        }
-
-        #side_body {
-          padding-top: 30px;
-          width: 25%;
-          display: inline-block;
-          background: rgba(0, 0, 0, 0.8);
-
-          .inner {
-            padding: 0 20px;
-            color: #eee;
-
-            h2 {
-            }
-          }
-        }
-      }
-    }
-
-    > footer {
-      .inner {
-        padding: 15px;
-      }
-    }
-
-    ul#blog_posts {
-      li {
-        border-bottom: 1px solid #333;
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-        .details {
-          color: #888;
-        }
-      }
-    }
-
-
-    #blog_posts, #show_blog_post {
-      width: 100%;
-    }
-  }
-
-  .page-body {
-    padding: 30px 20px;
+  > .navbar {
+    -webkit-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
   }
 
   article.blog_post, article#blog_post {
@@ -347,22 +246,11 @@ body {
       }
     }
   }
-}
 
-@media all and (min-width: 1441px) {
-  #page_container {
-    section#page, > footer {
-      max-width: 1380px;
-    }
-  }
-
-
-  #blog_posts {
-    article.blog_post {
-      display: inline-block;
-      width: 47%;
-      margin: 5px 1% 0 1%;
-      float: left;
-    }
+  > footer {
+    margin-top: 50px;
+    background: #fff;
+    padding: 20px 20px 50px 20px;;
+    color: #333;
   }
 }

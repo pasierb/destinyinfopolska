@@ -1,13 +1,13 @@
 <%-# render '/refinery/content_page' %>
 
 <div class="row">
-  <div class="col-lg-9 col-md-8 col-sm-12">
+  <div class="col-lg-9 col-md-7 col-sm-6 col-xs-12">
     <h3>
       <span class="social-media-icon icon-sm news"></span> <%= link_to "News", refinery.blog_root_path %>
     </h3>
 
     <div class="row blog-posts-grid">
-      <%- Refinery::Blog::Post.order("published_at DESC").limit(10).each do |post| %>
+      <%- Refinery::Blog::Post.order("published_at DESC").where(draft: false).limit(10).each do |post| %>
         <div class="col-lg-4 col-md-6 blog-posts-grid-item">
 
           <article class="blog_post">
@@ -60,7 +60,7 @@
       <% end %>
     </div>
   </div>
-  <div class="col-lg-3 col-md-4 col-sm-12">
+  <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
     <div>
       <%= render "common/twitch_users_status" %>
     </div>
@@ -78,17 +78,3 @@
     </div>
   </div>
 </div>
-
-<%- content_for :javascripts do %>
-  <script>
-    (function() {
-      $(document).ready(function() {
-        imagesLoaded($('.blog-posts-grid'), function() {
-          $('.blog-posts-grid').masonry({
-            itemSelector: '.blog-posts-grid-item'
-          });
-        });
-      });
-    })();
-  </script>
-<% end %>
