@@ -1,0 +1,9 @@
+<ul class="list-inline">
+  <li>
+    <%= link_to 'Tweet', refinery.blog_post_url(post), :class => "twitter-share-button" %>
+  </li>
+  <li>
+    <%= content_tag :div, "", "class" => "fb-share-button", "data-layout" => "button_count", "data-href" => refinery.blog_post_url(post) %>
+  </li>
+</ul>
+

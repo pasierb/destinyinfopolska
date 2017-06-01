@@ -4,6 +4,8 @@
       <%= render 'post' %>
     </div>
 
+    <%= render "share", post: @post %>
+
     <div class="comments">
       <%= render 'comments' %>
     </div>
@@ -28,12 +30,6 @@
 </div>
 
 <% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
-<% content_for :javascripts do %>
-  <%# enable AJAX'd post nav at your own risk until html5 history API implemented. %>
-  <%#= javascript_include_tag('refinery/blog/frontend') %>
-  <script src="http://w.sharethis.com/button/buttons.js"></script>
-  <script>stLight.options({publisher:'<%= Refinery::Blog.share_this_key %>'});</script>
-<% end if Refinery::Blog::Post::ShareThis.enabled? %>
 
 <% content_for :meta do %>
   <meta property="og:url" content="<%= refinery.blog_post_url(@post) %>">
