@@ -32,15 +32,20 @@
                   <%= link_to (post.source_url_title.blank? ? post.source_url : post.source_url_title), post.source_url %>
                 </div>
               <% end %>
-              <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
             </header>
-            <section class='clearfix'>
-              <% if post.featured_image.present? || post.featured_image_url.present? %>
-                <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
-              <% end %>
 
+            <% if post.featured_image.present? || post.featured_image_url.present? %>
+              <div class="featured-image">
+                <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
+              </div>
+            <% end %>
+
+            <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
+
+            <section class='clearfix'>
               <%= post.custom_teaser.html_safe %>
             </section>
+
             <footer>
               <span>
                 <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post) %>
