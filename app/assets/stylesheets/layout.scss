@@ -18,7 +18,7 @@ body {
     padding-right: 10px;
 
     .navbar-brand {
-      color: #333;
+      padding-top: 20px;
     }
   }
 
@@ -138,7 +138,6 @@ body {
   }
 
   .logo {
-    text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
     display: inline-block;
     margin: 0;
     padding: 12px 0 0 59px;
@@ -146,19 +145,18 @@ body {
     height: 52px;
     overflow: hidden;
     background-repeat: no-repeat;
-    color: #520088;
     text-decoration: none;
 
     &.logo-90 {
       background-image: image_url('logo_84x90');
       height: 90px;
-      padding-left: 90px;
+      padding-left: 95px;
     }
 
     &.logo-60 {
       background-image: image_url('logo_56x60');
       height: 60px;
-      padding-left: 60px;
+      padding-left: 65px;
     }
 
     :hover {
@@ -185,15 +183,15 @@ body {
         padding: 0;
 
         &.selected {
-          background-color: rgba(0, 0, 0, 0.1);
+          background-color: rgba(0, 0, 0, 0.3);
         }
 
         a {
           display: inline-block;
           padding: 20px 20px;
-          color: #111;
           text-decoration: none;
           cursor: pointer;
+          color: #ddd;
 
           &:hover {
             // background-color: rgba(0, 0, 0, 0.2);
