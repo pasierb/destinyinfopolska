@@ -9,8 +9,9 @@
             <%= render "/refinery/blog/shared/post", post: post %>
           </div>
         <% end %>
-        <%= will_paginate @posts %>
       </div>
+
+      <%= will_paginate @posts %>
     <% else %>
       <p><%= t('.no_blog_articles_posted', :date => @date_title) %></p>
     <% end %>

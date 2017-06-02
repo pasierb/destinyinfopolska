@@ -21,15 +21,11 @@
       <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
     </header>
     <section class='clearfix'>
-      <% if post.featured_image.present? || post.featured_image_url.present? %>
+      <%= link_to refinery.blog_post_path(post), class: "featured-image image-zoom" do%>
         <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
       <% end %>
 
-      <% if blog_post_teaser_enabled? %>
-        <%= blog_post_teaser(post) %>
-      <% else %>
-        <%= post.body.html_safe %>
-      <% end %>
+      <%= blog_post_teaser(post) %>
     </section>
     <footer>
       <p>

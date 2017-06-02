@@ -8,6 +8,9 @@
             <%= render "/refinery/blog/shared/post", post: post %>
           </div>
         <% end %>
+      </div>
+
+      <div class="text-center">
         <%= will_paginate @posts %>
       </div>
     <% else %>

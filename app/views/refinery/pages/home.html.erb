@@ -35,12 +35,12 @@
             </header>
 
             <% if post.featured_image.present? || post.featured_image_url.present? %>
-              <div class="featured-image">
+              <%= link_to refinery.blog_post_path(post), class: "featured-image image-zoom" do%>
                 <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
-              </div>
+              <% end %>
             <% end %>
 
-            <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
+            <h3><%= link_to post.title, refinery.blog_post_path(post) %></h3>
 
             <section class='clearfix'>
               <%= post.custom_teaser.html_safe %>
