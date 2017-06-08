@@ -52,6 +52,10 @@ body {
       &.news {
         background-image: image_url("text-lines_32")
       }
+
+      &.github {
+        background-image: image_url("GitHub-Mark-Light-32px")
+      }
     }
 
     &.twitch {
@@ -264,10 +268,18 @@ body {
   }
 
   > footer {
-    margin-top: 50px;
-    background: #111;
-    padding: 20px 20px 50px 20px;;
+    border-top: 1px solid #555;
+    margin-top: 30px;
+    padding: 30px 30px 100px 30px;
     color: #eee;
+
+    ul.footer-list {
+      > li {
+        vertical-align: top;
+        border-right: 1px solid #555;
+        padding: 10px 25px;
+      }
+    }
   }
 
   .image-zoom {
