@@ -191,7 +191,15 @@ body {
         padding: 0;
 
         &.selected {
-          background-color: rgba(0, 0, 0, 0.3);
+          background-color: #ba7cc1;
+
+          a {
+            color: #ddd;
+
+            &:hover {
+              color: #ddd;
+            }
+          }
         }
 
         a {
@@ -199,7 +207,7 @@ body {
           padding: 20px 20px;
           text-decoration: none;
           cursor: pointer;
-          color: #ddd;
+          color: #444;
 
           &:hover {
             // background-color: rgba(0, 0, 0, 0.2);
