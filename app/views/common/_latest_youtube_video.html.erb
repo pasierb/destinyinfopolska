@@ -4,40 +4,6 @@
 </h3>
 
 <div class="content">
-  <div id="ytplayer"></div>
+  <%= content_tag "dip-youtube-video", "", "channel-id" => "UCtePAeF_4XYjFYlWyJ3VotA" %>
 </div>
-
-<%- content_for :javascripts do %>
-  <script>
-    // Load the IFrame Player API code asynchronously.
-    var apiKey = "<%= Rails.application.secrets.youtube_api_key %>";
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/player_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // Replace the 'ytplayer' element with an <iframe> and
-    // YouTube player after the API code downloads.
-    var player;
-
-    function onYouTubePlayerAPIReady() {
-      var width = $("#ytplayer").width();
-
-      $.get({
-        url: "https://www.googleapis.com/youtube/v3/search",
-        data: {
-          part: "snippet",
-          channelId: "UCtePAeF_4XYjFYlWyJ3VotA",
-          order: "date",
-          key: apiKey
-        }
-      }, function(data) {
-        player = new YT.Player('ytplayer', {
-          videoId: data.items[0].id.videoId,
-          width: width
-        });
-      })
-    }
-  </script>
-<% end %>
 

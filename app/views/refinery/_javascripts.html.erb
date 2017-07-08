@@ -8,8 +8,10 @@
 
 <script>
   var dip = {
-    twitchClientId: "<%= Rails.application.secrets.twitch_client_id.html_safe %>"
+    twitchClientId: "<%= Rails.application.secrets.twitch_client_id.html_safe %>",
+    youtubeApiKey: "<%= Rails.application.secrets.youtube_api_key.html_safe %>"
   }
+
 
   $(document).ready(function() {
     imagesLoaded($('.blog-posts-grid'), function() {
@@ -21,7 +23,33 @@
     $(".blog-post img").wrap(function() {
       return ["<a data-fancybox='group' href='", this.src ,"'></a>"].join('');
     })
+
+    window.dipApp = new Vue({
+      el: "#dipApp",
+      data: {
+        vent: new Vue(),
+        twitchClientId: "<%= Rails.application.secrets.twitch_client_id.html_safe %>",
+        youtubeApiKey: "<%= Rails.application.secrets.youtube_api_key.html_safe %>"
+      }
+    });
   });
+
+</script>
+
+<script>
+  // Load the IFrame Player API code asynchronously.
+  var apiKey = "<%= Rails.application.secrets.youtube_api_key %>";
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+
+  function onYouTubePlayerAPIReady() {
+    window.dipApp.vent.$emit('onYouTubePlayerAPIReady');
+  }
 </script>
 
 <%= javascript_include_tag 'application' %>
