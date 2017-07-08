@@ -1,27 +1,22 @@
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    <div class="content">
-      <div class="row">
-        <div class="col-sm-12">
-          <h2><%= @page.title %></h2>
+<div class="container">
+  <% @page.parts.where(slug: 'body').each do |part| %>
+    <%- if part.body.present? %>
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title"><%= @page.title %></span>
 
-          <% @page.parts.where(slug: 'body').each do |part| %>
-            <%- if part.body.present? %>
-              <article class="page-body">
-                <%= part.body.html_safe %>
-              </article>
-            <% end %>
-          <% end %>
+          <%= part.body.html_safe %>
         </div>
       </div>
-    </div>
+    <% end %>
+  <% end %>
 
+  <div class="row">
     <%- Refinery::Authentication::Devise::User.order(:username).each do |user| %>
-      <p></p>
-      <div class="content">
+      <div class="col s12 m12 l6">
         <%= render "/common/user_info", user: user %>
       </div>
     <% end %>
   </div>
-</div>
 
+</div>

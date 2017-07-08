@@ -12,5 +12,6 @@
 //
 //= require jquery_ujs
 // require turbolinks
+//= require materialize
 //= require_tree ./components
 //= require app

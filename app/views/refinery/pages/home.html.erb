@@ -1,52 +1,43 @@
-<%-# render '/refinery/content_page' %>
-
 <div class="row">
-  <div class="col-lg-9 col-md-7 col-sm-6 col-xs-12">
-    <h3>
-      <span class="social-media-icon icon-sm news"></span> <%= link_to "News", refinery.blog_root_path %>
-    </h3>
-
-    <div class="row blog-posts-grid">
+  <div class="col s12 m12 l7 xl9">
+    <div class="row">
       <%- Refinery::Blog::Post.order("published_at DESC").where(draft: false).limit(10).each do |post| %>
-        <div class="col-lg-4 col-md-6 blog-posts-grid-item">
+        <div class="col s12 m6 l6 xl4">
 
-          <article class="blog_post">
-            <header>
-              <section class='details'>
-                <%= post.author.username if post.author.present? %>
-                <time datetime="<%=l post.published_at.to_date, :format => :default %>" class='posted_at'>
-                  @ <%= l(post.published_at.to_date, :format => :short) %>
-                </time>
-
-                <% if (categories = post.categories).any? %>
-                  <span class='filled_in'>
-                    <% categories.each_with_index do |category, index| %>
-                      <%= link_to "##{category.title}", refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
-                    <% end %>
-                  </span>
+          <article class="card medium white-text">
+            <% if post.featured_image.present? || post.featured_image_url.present? %>
+              <div class="card-image">
+                <%= link_to refinery.blog_post_path(post), class: "featured-image image-zoom" do%>
+                  <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
                 <% end %>
-              </section>
+              </div>
+            <% end %>
+            <div class="card-content">
+              <span class="card-title">
+                <%= link_to post.title, refinery.blog_post_path(post) %>
+              </span>
+
+              <%= post.author.username if post.author.present? %>
+              <time datetime="<%=l post.published_at.to_date, :format => :default %>" class='posted_at'>
+                @ <%= l(post.published_at.to_date, :format => :short) %>
+              </time>
+
+              <% if (categories = post.categories).any? %>
+                <span class='filled_in'>
+                  <% categories.each_with_index do |category, index| %>
+                    <%= link_to "##{category.title}", refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
+                  <% end %>
+                </span>
+              <% end %>
               <% if post.source_url.present? %>
                 <div class='blog_source'>
                   <%= "#{t('source', :scope => 'refinery.blog.posts.show')}: " %>
                   <%= link_to (post.source_url_title.blank? ? post.source_url : post.source_url_title), post.source_url %>
                 </div>
               <% end %>
-            </header>
 
-            <% if post.featured_image.present? || post.featured_image_url.present? %>
-              <%= link_to refinery.blog_post_path(post), class: "featured-image image-zoom" do%>
-                <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
-              <% end %>
-            <% end %>
-
-            <h3><%= link_to post.title, refinery.blog_post_path(post) %></h3>
-
-            <section class='clearfix'>
               <%= post.custom_teaser.html_safe %>
-            </section>
 
-            <footer>
               <span>
                 <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post) %>
               </span>
@@ -58,14 +49,15 @@
                   <% end %>
                 </span>
               <% end %>
-            </footer>
+            </div>
           </article>
 
         </div>
       <% end %>
     </div>
   </div>
-  <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
+
+  <div class="col s12 m2 l5 xl3">
     <div>
       <%= render "common/twitch_users_status" %>
     </div>

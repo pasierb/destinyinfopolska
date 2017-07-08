@@ -3,7 +3,9 @@
     props: ["channelId"],
     template: '<div>\
       <div class="video-url-slot"><slot></slot></div>\
-      <div v-bind:id="playerId">{{videoString}}</div>\
+      <div class="video-container">\
+        <div v-bind:id="playerId">{{videoString}}</div>\
+      </div>\
     </div>',
     data: function() {
       var vm = this;

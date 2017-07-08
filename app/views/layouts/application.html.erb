@@ -3,9 +3,7 @@
   <% site_bar = render('/refinery/site_bar', :head => true) -%>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= render "/refinery/head" %>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <%= favicon_link_tag 'apple-icon-57x57.png', sizes: "57x57", rel: 'apple-touch-icon', type: 'image/png' %>
     <%= favicon_link_tag "apple-icon-57x57.png", rel: "apple-touch-icon", sizes: "57x57" %>
@@ -25,7 +23,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
   </head>
   <body id="<%= canonical_id @page %>" class="<%= view_template_class @page %>">
     <div id="fb-root"></div>
@@ -41,17 +38,13 @@
 
     <%= render "/refinery/header" -%>
 
-    <div class="container-fluid" id="dipApp">
+    <div id="dipApp">
       <%= yield %>
     </div>
 
-    <footer class="container-fluid" id="dipApp">
-      <%= render "/refinery/footer" -%>
-    </footer>
-
+    <%= render "/refinery/footer" -%>
 
     <%= site_bar -%>
-
 
     <%= render "/refinery/javascripts" %>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
