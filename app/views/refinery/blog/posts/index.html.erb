@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col l9 m8 s7">
+  <div class="col s12 m12 l9 xl10">
 
     <% if @posts.any? %>
-      <div class="row blog-posts-grid">
+      <div class="row">
         <%- @posts.each do |post| %>
-          <div class="col-lg-6 col-md-12 col-sm-12 blog-posts-grid-item">
+          <div class="col s12 m12 l6 xl4">
             <%= render "/refinery/blog/shared/post", post: post %>
           </div>
         <% end %>
@@ -18,7 +18,7 @@
     <% end %>
 
   </div>
-  <div class="col l3 m4 s5">
+  <div class="col s12 m12 l3 xl2">
     <%= render '/refinery/blog/shared/body_content_right' %>
   </div>
 </div>

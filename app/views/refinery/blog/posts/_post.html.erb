@@ -4,8 +4,16 @@
  </div>
 <% end %>
 
-<article id="blog_post">
-  <header>
+<article class="card">
+  <% if @post.featured_image.present? || @post.featured_image_url.present? %>
+    <div class="card-image">
+      <%= image_tag @post.featured_image ? @post.featured_image.url : @post.featured_image_url %>
+
+      <span class="card-title"><%= @post.title %></span>
+    </div>
+  <% end %>
+  <div class="card-content">
+
     <section class='details'>
       <%= @post.author.username if @post.author.present? %>
       <time datetime="<%=l @post.published_at.to_date, :format => :default %>" class='posted_at'>
@@ -26,11 +34,9 @@
       <% end %>
     </section>
 
-    <h1><%= @post.title %></h1>
+    <%= @post.body.html_safe %>
+  </div>
 
-  </header>
-
-  <%= @post.body.html_safe %>
 </article>
 
 <%= render '/refinery/draft_page_message' unless @post.nil? or @post.live? -%>

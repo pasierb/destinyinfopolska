@@ -1,22 +1,22 @@
-<div class="container">
-  <% @page.parts.where(slug: 'body').each do |part| %>
-    <%- if part.body.present? %>
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title"><%= @page.title %></span>
+<% @page.parts.where(slug: 'body').each do |part| %>
+  <%- if part.body.present? %>
+    <h2><%= @page.title %></h2>
 
-          <%= part.body.html_safe %>
-        </div>
-      </div>
-    <% end %>
+    <%= part.body.html_safe %>
   <% end %>
+<% end %>
 
-  <div class="row">
-    <%- Refinery::Authentication::Devise::User.order(:username).each do |user| %>
-      <div class="col s12 m12 l6">
-        <%= render "/common/user_info", user: user %>
-      </div>
-    <% end %>
-  </div>
+<ul class="collection">
+  <%- Refinery::Authentication::Devise::User.order(:username).each do |user| %>
+    <li class="collection-item avatar">
+      <% if user.profile_image.present? %>
+        <%= image_tag user.profile_image.url, class: 'circle' %>
+      <% end %>
+      <span class="title"><strong><%= user.username %></strong></span>
+      <p>
+        <%= user.description.html_safe %>
+      </p>
+    </li>
+  <% end %>
+</ul>
 
-</div>

@@ -1,8 +1,1 @@
-<div class="card-panel">
-  <h4>
-    <span class="social-media-icon icon-sm twitch"></span>
-    Twitch
-  </h4>
-
-  <%= content_tag 'dip-twitch-status' , "", ":logins" => Refinery::Authentication::Devise::User.where(%Q(twitch_username IS NOT NULL)).pluck(:twitch_username).reject(&:empty?).to_json, "class" => "content" %>
-</div>
+<%= content_tag 'dip-twitch-status' , "", ":logins" => Refinery::Authentication::Devise::User.where(%Q(twitch_username IS NOT NULL)).pluck(:twitch_username).reject(&:empty?).to_json, "class" => "content" %>

@@ -1,31 +1,23 @@
-<div class="container">
-  <div class="row">
+<div class="row">
 
-    <div class="col s12 m12 l9 xl9">
-      <div class="card">
-        <div class="card-content">
-          <%= render 'post' %>
-          <%= render "share", post: @post %>
-          <div class="comments">
-            <%= render 'comments' %>
-          </div>
-        </div>
-      </div>
+  <div class="col s12 m12 l9 xl9">
+    <%= render 'post' %>
+    <%= render "share", post: @post %>
+    <div class="comments">
+      <%= render 'comments' %>
     </div>
-
-    <div class="col s12 m12 l3 xl3">
-      <%= render "/common/user_info", user: @post.author %>
-
-      <div class="card-panel">
-        <%= render '/refinery/blog/shared/body_content_right' %>
-      </div>
-
-      <%= render "/common/facebook_feed" %>
-
-      <%= render "/common/twitter_feed" %>
-    </div>
-
   </div>
+
+  <div class="col s12 m12 l3 xl3">
+    <%= render "/common/user_info", user: @post.author %>
+
+    <%= render '/refinery/blog/shared/body_content_right' %>
+
+    <%= render "/common/facebook_feed" %>
+
+    <%= render "/common/twitter_feed" %>
+  </div>
+
 </div>
 
 

@@ -3,55 +3,7 @@
     <div class="row">
       <%- Refinery::Blog::Post.order("published_at DESC").where(draft: false).limit(10).each do |post| %>
         <div class="col s12 m6 l6 xl4">
-
-          <article class="card medium white-text">
-            <% if post.featured_image.present? || post.featured_image_url.present? %>
-              <div class="card-image">
-                <%= link_to refinery.blog_post_path(post), class: "featured-image image-zoom" do%>
-                  <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
-                <% end %>
-              </div>
-            <% end %>
-            <div class="card-content">
-              <span class="card-title">
-                <%= link_to post.title, refinery.blog_post_path(post) %>
-              </span>
-
-              <%= post.author.username if post.author.present? %>
-              <time datetime="<%=l post.published_at.to_date, :format => :default %>" class='posted_at'>
-                @ <%= l(post.published_at.to_date, :format => :short) %>
-              </time>
-
-              <% if (categories = post.categories).any? %>
-                <span class='filled_in'>
-                  <% categories.each_with_index do |category, index| %>
-                    <%= link_to "##{category.title}", refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
-                  <% end %>
-                </span>
-              <% end %>
-              <% if post.source_url.present? %>
-                <div class='blog_source'>
-                  <%= "#{t('source', :scope => 'refinery.blog.posts.show')}: " %>
-                  <%= link_to (post.source_url_title.blank? ? post.source_url : post.source_url_title), post.source_url %>
-                </div>
-              <% end %>
-
-              <%= post.custom_teaser.html_safe %>
-
-              <span>
-                <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post) %>
-              </span>
-              <% if Refinery::Blog::Post.comments_allowed? %>
-                <span class='comment_count'>
-                  <%= link_to refinery.blog_post_path(post) do %>
-                    <%= content_tag :i, "0", "class" => "fb-comments-count", "data-href" => refinery.blog_post_url(post) %>
-                    <i class="fa fa-comments"></i>
-                  <% end %>
-                </span>
-              <% end %>
-            </div>
-          </article>
-
+          <%= render 'refinery/blog/shared/post', post: post %>
         </div>
       <% end %>
     </div>

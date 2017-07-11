@@ -1,50 +1,47 @@
 <% if post.live? %>
-  <article class="blog_post" id="<%= dom_id(post) %>">
-    <header>
-      <section class='details'>
+  <article class="card medium hoverable" id="<%= dom_id(post) %>">
+    <div class="card-image image-zoom">
+      <% if post.featured_image.present? || post.featured_image_url.present? %>
+        <%= link_to refinery.blog_post_path(post), class: "featured-image image-zoom" do%>
+          <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
+        <% end %>
+      <% end %>
+
+      <span class="card-title">
+        <%= link_to post.title, refinery.blog_post_path(post) %>
+      </span>
+
+    </div>
+
+    <div class="card-content">
+      <div>
         <%= post.author.username if post.author.present? %>
         <time datetime="<%=l post.published_at.to_date, :format => :default %>" class='posted_at'>
           @ <%= l(post.published_at.to_date, :format => :short) %>
         </time>
-        <% if (categories = post.categories.translated).any? %>
-          <aside class='filled_in'>
-            <%= t('filled_in', :scope => 'refinery.blog.posts.show') %>
-            <%=raw categories.collect { |category| link_to category.title, refinery.blog_category_path(category) }.to_sentence %>
-          </aside>
-        <% end %>
-        <% if (tags = post.tags).any? %>
-          <% tags.each do |tag| %>
-            <%= link_to "##{tag}", refinery.blog_tagged_posts_path(tag.id, tag.name.parameterize), class: "post-tag-#{tag}" %>
+      </div>
+
+      <% if (categories = post.categories).any? %>
+        <div class="">
+          <% categories.each_with_index do |category, index| %>
+            <div class="chip">
+              <%= link_to category.title, refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
+            </div>
           <% end %>
-        <% end %>
-      </section>
-      <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
-    </header>
-    <section class='clearfix'>
-      <%= link_to refinery.blog_post_path(post), class: "featured-image image-zoom" do%>
-        <%= image_tag post.featured_image ? post.featured_image.url : post.featured_image_url %>
+        </div>
       <% end %>
 
-      <%= blog_post_teaser(post) %>
-    </section>
-    <footer>
-      <p>
-        <% if blog_post_teaser_enabled? && post.custom_teaser.present? %>
-          <span>
-            <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post) %>
-          </span>
-        <% end %>
+      <% if post.source_url.present? %>
+        <div class='blog_source'>
+          <%= "#{t('source', :scope => 'refinery.blog.posts.show')}: " %>
+          <%= link_to (post.source_url_title.blank? ? post.source_url : post.source_url_title), post.source_url %>
+        </div>
+      <% end %>
 
-        <% if Refinery::Blog::Post.comments_allowed? %>
-
-          <span class='comment_count'>
-            <%= link_to refinery.blog_post_path(post) do %>
-              <%= content_tag :i, "0", "class" => "fb-comments-count", "data-href" => refinery.blog_post_url(post) %>
-              <i class="fa fa-comments"></i>
-            <% end %>
-          </span>
-        <% end %>
-      </p>
-    </footer>
+      <%= ((post.custom_teaser.present? && post.custom_teaser) || post.body).html_safe %>
+    </div>
+    <div class="card-action">
+      <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_post_path(post) %>
+    </div>
   </article>
 <% end %>
