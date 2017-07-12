@@ -4,12 +4,11 @@
  </div>
 <% end %>
 
-<article class="card">
+<article class="card blog-post">
   <% if @post.featured_image.present? || @post.featured_image_url.present? %>
     <div class="card-image">
       <%= image_tag @post.featured_image ? @post.featured_image.url : @post.featured_image_url %>
 
-      <span class="card-title"><%= @post.title %></span>
     </div>
   <% end %>
   <div class="card-content">
@@ -26,13 +25,15 @@
         </div>
       <% end %>
       <% if (categories = @post.categories).any? %>
-        <span class='filled_in'>
-          <% categories.each_with_index do |category, index| %>
+        <% categories.each_with_index do |category, index| %>
+          <div class="chip">
             <%= link_to "##{category.title}", refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
-          <% end %>
-        </span>
+          </div>
+        <% end %>
       <% end %>
     </section>
+
+    <h2><%= @post.title %></h2>
 
     <%= @post.body.html_safe %>
   </div>

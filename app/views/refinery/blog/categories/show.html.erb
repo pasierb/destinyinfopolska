@@ -1,17 +1,19 @@
 <div class="row">
-  <div class="col-lg-9 col-md-8 col-sm-7">
-    <h2><%= @category.title %></h2>
+  <div class="col s12 m12 l7 xl9">
+    <h3><%= @category.title %></h3>
 
     <% if @posts.any? %>
       <div class="row blog-posts-grid">
         <%- @posts.each do |post| %>
-          <div class="col-lg-6 col-md-12 col-sm-12 blog-posts-grid-item">
+          <div class="col s12 m12 l6 xl4">
             <%= render "/refinery/blog/shared/post", post: post %>
           </div>
         <% end %>
       </div>
 
-      <%= will_paginate @posts %>
+      <div class="center">
+        <%= paginate @posts %>
+      </div>
     <% else %>
       <p>
         <%= t('.no_posts') %>
@@ -19,7 +21,7 @@
     <% end %>
   </div>
 
-  <div class="col-lg-3 col-md-4 col-sm-5">
+  <div class="col s12 m12 l5 xl3">
     <div class="content">
       <%= render "/refinery/blog/shared/categories" %>
     </div>

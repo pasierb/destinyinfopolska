@@ -2,17 +2,15 @@
   Vue.component('dip-twitch-status', {
     props: ['logins'],
     template: '<div>\
-      <ul class="list-unstyled">\
-        <li v-for="login in logins">\
-          <dip-twitch-user-status :login="login"></dip-twitch-user-status>\
-        </li>\
-      </ul>\
+      <span v-for="login in logins" style="white-space: nobreak;">\
+        <dip-twitch-user-status :login="login"></dip-twitch-user-status>\
+      </span>\
     </div>'
   })
 
   Vue.component('dip-twitch-user-status', {
     props: ['login'],
-    template: '<div>\
+    template: '<span>\
       <i class="fa fa-twitch" v-bind:class="twitchStatusClass"></i>\
       <strong>\
         <a v-bind:href="twitchAccountUrl" target="_twitch">{{login}}</a>\
@@ -23,7 +21,7 @@
         {{twitchStatus.stream.game}} <i class="fa fa-eye"></i>{{twitchStatus.stream.viewers}}\
         <small>- {{twitchStatus.stream.channel.status}}</small>\
       </span>\
-    </div>',
+    </span>',
     data: function() {
       return {
         inteval: null,

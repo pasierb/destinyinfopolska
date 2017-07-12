@@ -7,9 +7,7 @@
         <% end %>
       <% end %>
 
-      <span class="card-title">
-        <%= link_to post.title, refinery.blog_post_path(post) %>
-      </span>
+      <%= link_to post.title, refinery.blog_post_path(post), class: 'card-title' %>
 
     </div>
 
@@ -25,7 +23,7 @@
         <div class="">
           <% categories.each_with_index do |category, index| %>
             <div class="chip">
-              <%= link_to category.title, refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
+              <%= link_to category.title, refinery.blog_category_path(category) -%>
             </div>
           <% end %>
         </div>

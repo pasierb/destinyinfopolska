@@ -1,29 +1,47 @@
 <div class="row">
+  <div class="col s12">
+    <p class="center-align">
+      &nbsp;
+      <%= render "common/twitch_users_status" %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
   <div class="col s12 m12 l7 xl9">
+    <h4>
+      <%= link_to "News", refinery.blog_root_path %>
+    </h4>
     <div class="row">
-      <%- Refinery::Blog::Post.order("published_at DESC").where(draft: false).limit(10).each do |post| %>
+      <div class="col s12 m12 l12 xl8">
+        <div class="card">
+          <div class="card-image">
+            <%= render "common/latest_youtube_video" %>
+          </div>
+          <div class="card-action">
+            <a href="https://www.youtube.com/channel/UCtePAeF_4XYjFYlWyJ3VotA" target="_blank">DIP na YouTube</a>
+          </div>
+        </div>
+      </div>
+      <%- Refinery::Blog::Post.order("published_at DESC").where(draft: false).limit(5).each do |post| %>
         <div class="col s12 m6 l6 xl4">
           <%= render 'refinery/blog/shared/post', post: post %>
         </div>
       <% end %>
     </div>
   </div>
+  <div class="col s12 m12 l5 xl3">
+    <h4>
+      <i class="social-media-icon icon-sm facebook"></i>
+      Facebook
+    </h4>
+    <%= render "common/facebook_feed" %>
+    <h4>
+      <i class="social-media-icon icon-sm twitter"></i>
+      Twitter
+    </h4>
+    <%= render "common/twitter_feed" %>
 
-  <div class="col s12 m2 l5 xl3">
-    <div>
-      <%= render "common/twitch_users_status" %>
-    </div>
-
-    <div>
-      <%= render "common/latest_youtube_video" %>
-    </div>
-
-    <div>
-      <%= render "common/facebook_feed" %>
-    </div>
-
-    <div>
-      <%= render "common/twitter_feed" %>
-    </div>
+    <%= render "/refinery/blog/shared/rss_feed" %>
   </div>
 </div>

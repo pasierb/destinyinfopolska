@@ -1,5 +1,14 @@
 ---
 pl:
+  tags:
+    title: 'Tagi'
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
   destiny:
     d1:
       skull:
