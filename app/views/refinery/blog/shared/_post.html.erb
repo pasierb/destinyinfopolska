@@ -1,5 +1,7 @@
+<% size = 'medium' if local_assigns[:size].nil? %>
+
 <% if post.live? %>
-  <article class="card medium hoverable" id="<%= dom_id(post) %>">
+  <article class="card <%= size %> hoverable" id="<%= dom_id(post) %>">
     <div class="card-image image-zoom">
       <% if post.featured_image.present? || post.featured_image_url.present? %>
         <%= link_to refinery.blog_post_path(post), class: "featured-image image-zoom" do%>

@@ -13,23 +13,34 @@
       <%= link_to "News", refinery.blog_root_path %>
     </h4>
     <div class="row">
-      <div class="col s12 m12 l12 xl8">
-        <div class="card">
-          <div style="height: 345px;">
-            <%= render "common/latest_youtube_video" %>
+      <%- Refinery::Blog::Post.order("published_at DESC").where(draft: false).limit(10).each.with_index do |post, i| %>
+        <%- if i == 0 %>
+          <div class="col s12 m12 l12 xl12">
+            <%= render 'refinery/blog/shared/post', post: post, size: 'large' %>
           </div>
-          <div class="card-action">
-            <a href="https://www.youtube.com/channel/UCtePAeF_4XYjFYlWyJ3VotA" target="_blank">DIP na YouTube</a>
+
+          <div class="col s12 m12 l12 xl8">
+            <div class="card">
+              <div style="height: 345px;">
+                <%= render "common/latest_youtube_video" %>
+              </div>
+              <div class="card-action">
+                <a href="https://www.youtube.com/channel/UCtePAeF_4XYjFYlWyJ3VotA" target="_blank">DIP na YouTube</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <%- Refinery::Blog::Post.order("published_at DESC").where(draft: false).limit(10).each do |post| %>
-        <div class="col s12 m6 l6 xl4">
-          <%= render 'refinery/blog/shared/post', post: post %>
-        </div>
+        <% else %>
+          <div class="col s12 m6 l6 xl4">
+            <%= render 'refinery/blog/shared/post', post: post %>
+          </div>
+        <% end %>
       <% end %>
 
-      <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_root_path(page: 2), :class => "waves-effect waves-light btn-large" %>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <%= link_to t('read_more', :scope => 'refinery.blog.shared.posts'), refinery.blog_root_path(page: 2), :class => "waves-effect waves-light btn-large" %>
+      </div>
     </div>
   </div>
   <div class="col s12 m12 l5 xl3">
