@@ -56,7 +56,8 @@ gem 'refinerycms', '~> 3.0'
 # Optionally, specify additional Refinery CMS Extensions here:
 gem 'refinerycms-acts-as-indexed', ['~> 2.0', '>= 2.0.1']
 #gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.6']
-gem 'refinerycms-tinymce', git: 'https://github.com/ghoppe/refinerycms-tinymce'
+#gem 'refinerycms-tinymce', git: 'https://github.com/ghoppe/refinerycms-tinymce'
+gem 'refinerycms-tinymce', git: 'https://github.com/sudakov/refinerycms-tinymce'
 gem 'refinerycms-authentication-devise', '~> 1.0'
 gem 'refinerycms-blog', git: 'https://github.com/refinery/refinerycms-blog', branch: 'master'
 # gem "refinerycms-news", '~> 2.1.0'

@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/ghoppe/refinerycms-tinymce
-  revision: 002d58a062f9ba407e5878a996fa248ccdab2775
-  specs:
-    refinerycms-tinymce (1.0.0)
-      refinerycms-core (~> 3.0, >= 3.0.0)
-
-GIT
   remote: https://github.com/refinery/refinerycms-blog
   revision: 76ee576e31945dde56ccf45f3715ccf9af631573
   branch: master
@@ -20,6 +13,13 @@ GIT
       refinerycms-core (~> 3.0.0)
       refinerycms-settings (~> 3.0.0)
       seo_meta (~> 2.0.0.rc.1)
+
+GIT
+  remote: https://github.com/sudakov/refinerycms-tinymce
+  revision: 76571cdeda259516a03baf2af31f50c26dcc2b68
+  specs:
+    refinerycms-tinymce (1.0.0)
+      refinerycms-core (~> 3.0, >= 3.0.0)
 
 GEM
   remote: https://rubygems.org/
