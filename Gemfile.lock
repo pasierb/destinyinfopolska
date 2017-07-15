@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/ghoppe/refinerycms-tinymce
+  revision: 002d58a062f9ba407e5878a996fa248ccdab2775
+  specs:
+    refinerycms-tinymce (1.0.0)
+      refinerycms-core (~> 3.0, >= 3.0.0)
+
+GIT
   remote: https://github.com/refinery/refinerycms-blog
   revision: 76ee576e31945dde56ccf45f3715ccf9af631573
   branch: master
@@ -340,6 +347,7 @@ DEPENDENCIES
   refinerycms-acts-as-indexed (~> 2.0, >= 2.0.1)
   refinerycms-authentication-devise (~> 1.0)
   refinerycms-blog!
+  refinerycms-tinymce!
   sass-rails (~> 5.0)
   spring
   sqlite3
