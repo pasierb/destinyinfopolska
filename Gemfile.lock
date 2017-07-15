@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/ghoppe/refinerycms-tinymce
-  revision: 002d58a062f9ba407e5878a996fa248ccdab2775
+  remote: https://github.com/pasierb/refinerycms-tinymce
+  revision: 48bb97783f70670262d04022ac2982ba6ee879e0
   specs:
     refinerycms-tinymce (1.0.0)
       refinerycms-core (~> 3.0, >= 3.0.0)
