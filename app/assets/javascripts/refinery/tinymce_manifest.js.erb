@@ -1,0 +1,69 @@
+;(function() {
+  var ext = document.createElement('script');
+
+  //ext.setAttribute('src', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=lvlnm0sve4pys7ynwlabtjufla43h9q1i254rk6g4ptupqm8');
+  ext.setAttribute('src', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=<%= Rails.application.secrets.tinymce_api_key %>');
+  ext.onload = function() {
+    $(document).trigger('refinerycms-tinymce-loaded', {});
+
+    init_tinymce_for("textarea.visual_editor")
+
+    $('#submit_button').on('click', function(event){
+      var mceWindows = top.tinymce.activeEditor.windowManager.windows;
+      var activeWindow = mceWindows[mceWindows.length - 1];
+      var args           = activeWindow.params;
+
+      if (!activeWindow) return false;
+
+      var win                = (args.window);
+      var input              = (args.input);
+      var dialog_type        = $('#visual_editor_dialog_type', window.parent.document).val();
+
+      if (dialog_type == 'link') {
+        selector = "#visual_editor_href";
+      } else {
+        selector = "#visual_editor_src";
+      }
+      win.document.getElementById(input).value = $(selector, window.parent.document).val();
+      activeWindow.close();
+    });
+  };
+
+  document.head.appendChild(ext);
+
+  function init_tinymce_for(jq_selector) {
+    tinymce.init({
+      selector: jq_selector,
+      plugins: 'advlist autolink lists link image charmap preview hr anchor pagebreak searchreplace visualblocks visualchars code fullscreen media nonbreaking save table contextmenu directionality paste textcolor colorpicker textpattern imagetools',
+      toolbar1: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor',
+      image_advtab: true,
+      content_css : '<%= asset_path "tinymce.scss", :only_path => false %>',
+      skin_url: '/assets/tinymce/skins/lightgray',
+
+      file_browser_callback   : function(field_name, url, type, win) {
+        console.log(arguments);
+
+        if (type == 'image') {
+          var title_text = "Choose an Image"
+          var cmsURL     = '/refinery/dialogs/image';
+        } else {
+          var title_text = "Choose Object to Link"
+          var cmsURL     = '/refinery/dialogs/link';
+        }
+
+        tinymce.activeEditor.windowManager.open({
+          file            : cmsURL,
+          title           : title_text,
+          width           : 866,  // Your dimensions may differ - toy around with them!
+          height          : 600,
+          resizable       : "yes",
+          inline          : "yes",  // This parameter only has an effect if you use the inlinepopups plugin!
+          close_previous  : "yes"
+        }, {
+          window  : win,
+          input   : field_name
+        });
+      }
+    });
+  }
+})();
